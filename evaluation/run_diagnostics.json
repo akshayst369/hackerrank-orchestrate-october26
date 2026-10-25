@@ -1,6 +1,6 @@
 {
   "usage": {
-    "timestamp": "2026-10-25T09:24:36.691499+00:00",
+    "timestamp": "2026-10-25T12:37:12.755426+00:00",
     "requests": 518,
     "model": "local-char-tfidf-logistic-regression-v1",
     "classifier_calls": 518,
@@ -9,7 +9,7 @@
     "input_tokens": 0,
     "output_tokens": 0,
     "api_cost_usd": 0,
-    "seconds": 1.173,
+    "seconds": 1.317,
     "observations": 2905,
     "files": 94,
     "output_sha256": "31d2d2a24cfc809a29d64f1dc59386e97e4e8d2bef6099fae73b3080fe1a3716",

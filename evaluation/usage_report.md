@@ -3,9 +3,9 @@
 ## Final full-dataset run
 
 - Command: `.venv/bin/python code/main.py`
-- Timestamp (UTC): 2026-10-25T09:24:36.691499+00:00
+- Timestamp (UTC): 2026-10-25T12:37:12.755426+00:00
 - Requests: 518; evidence files: 94; normalized observations: 2905.
-- Pipeline wall time: 1.173 seconds, excluding Python import startup.
+- Pipeline wall time: 1.317 seconds, excluding Python import startup.
 - OCR cache: warm; all 11 screenshot text extractions reused by image content hash. No OCR inference calls in this final run. Earlier cold-run OCR calls are not included in this run's totals.
 - Python: 3.14.6; scikit-learn: 1.9.1; Tesseract installed version: 5.5.3.
 - Root `output.csv` SHA-256: `31d2d2a24cfc809a29d64f1dc59386e97e4e8d2bef6099fae73b3080fe1a3716`.

@@ -1,0 +1,38 @@
+RETROSPECTIVE PROJECT PLANNING AND DEVELOPMENT SUMMARY
+Ghost Data Still Exists — HackerRank Orchestrate, October 2026
+
+This section was written after development to explain the decisions and work recorded in the conversation. It is an edited summary, not a reconstruction of verbatim messages or an independent planning diary.
+
+Project direction
+
+I chose to build an offline deletion-audit solution with no paid model API calls. My aim was to produce a runnable project, evaluate it against the public examples, and prepare the code, predictions, and development record required for submission. I used Codex to help interpret the specification, propose the architecture, implement the pipeline, and test the results.
+
+Approach and planning
+
+The working approach was to investigate deletion claims through evidence. The pipeline first checks whether the request authorizes deletion, then resolves current and historical identifiers, examines the supplied evidence, and applies the deletion policy at the audit cutoff. Its output separates findings, remediation, and verification.
+
+I selected the offline option when Codex presented the implementation choices. Codex implemented a local text classifier, document and log parsers, SQLite snapshot inspection, and Tesseract OCR. The design keeps evidence references and timestamps so conclusions can be reviewed. No hosted inference was used by the submitted agent.
+
+The plan covered several important failure modes: data surviving in replicas, old identifiers remaining in downstream systems, synchronization recreating deleted records, and backups restoring personal data. It also preserved policy-required records and internal tombstone references while removing prohibited direct identifiers.
+
+Evaluation and iteration
+
+After the initial implementation, I asked how to improve accuracy and approved a systematic review of the missing verification steps. Codex compared the predictions with the public sample answers and investigated the original participant-facing evidence.
+
+That review found a concrete implementation gap: a search record could explicitly identify its source account, but the account was omitted from future verification when no account-state readback existed. The implementation was updated to retain that verification obligation without inventing proof of the account's current state. Additional changes restricted ownership links to explicit reference fields and added diagnostics explaining how resources were linked to the subject.
+
+Tests covered historical identifiers, replica drift, interleaved logs, future evidence, retained records, account tombstones, explicit refusal of deletion, and ownership after anonymization. The final suite contains 17 passing regression tests.
+
+Results and limitations
+
+The solution produces one valid output row for each of the 518 evaluation requests. On the 32 public samples, deletion-status accuracy is 23/32 (71.88%). Exact step-sequence accuracy improved from 8/32 (25.00%) to 9/32 (28.12%). These are development-set results; accuracy on the hidden evaluation answers is unknown.
+
+The remaining 34 missing public-sample verification steps were documented individually. Twelve have readbacks without a cutoff-valid subject link, six have only later parsed state evidence, and sixteen have no parsed state observation. The solution remains a baseline with substantial limitations. The reported results do not claim that those gaps were resolved or that the hidden cases are fully correct.
+
+Submission preparation
+
+I requested the source ZIP and the final prediction CSV. Codex generated code.zip with the source, README, requirements, tests, and evaluation reports, reran the full dataset, and validated the CSV format. An extracted copy of the archive reproduced the output from a different working directory.
+
+Collaboration record
+
+My contributions recorded in the conversation were choosing the offline constraint, directing the project to proceed, requesting accuracy improvements, approving the investigation, and requesting submission artifacts. Codex supplied technical planning, implementation, debugging, testing, and packaging assistance. One coding agent, Codex, was used in this recorded work; no sub-agents were spawned.
