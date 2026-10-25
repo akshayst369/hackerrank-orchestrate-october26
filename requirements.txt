@@ -1,0 +1,4 @@
+pypdf>=6.0,<7
+Pillow>=11,<14
+pytesseract>=0.3.13,<0.4
+scikit-learn>=1.6,<2

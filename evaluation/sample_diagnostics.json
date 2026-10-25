@@ -1,0 +1,1108 @@
+{
+  "usage": {
+    "timestamp": "2026-10-25T08:38:26.733261+00:00",
+    "requests": 32,
+    "model": "local-char-tfidf-logistic-regression-v1",
+    "classifier_calls": 32,
+    "ocr_calls": 0,
+    "hosted_model_calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "api_cost_usd": 0,
+    "seconds": 0.621,
+    "observations": 2905,
+    "files": 94,
+    "output_sha256": "4e7bd115a3ee7831eccac0b489c237b53aa513ab1c485d2363f7df5fe3c25114",
+    "statuses": {
+      "INCOMPLETE": 31,
+      "COMPLETE": 1
+    },
+    "cases_with_warnings": 21
+  },
+  "cases": [
+    {
+      "case_id": "case_01",
+      "intent_authorized": true,
+      "intent_probability": 0.8906559947083006,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": []
+    },
+    {
+      "case_id": "case_02",
+      "intent_authorized": true,
+      "intent_probability": 0.860669243735546,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": []
+    },
+    {
+      "case_id": "case_03",
+      "intent_authorized": true,
+      "intent_probability": 0.7737509231807336,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "account_7566",
+          "category": "USER_PROFILE",
+          "observed_state": "ABSENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T08:57:37Z",
+          "location": "line 19"
+        },
+        {
+          "resource": "audit_record_2016",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T09:40:29Z",
+          "location": "line 35"
+        }
+      ]
+    },
+    {
+      "case_id": "case_04",
+      "intent_authorized": true,
+      "intent_probability": 0.19369438129005645,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": []
+    },
+    {
+      "case_id": "case_05",
+      "intent_authorized": true,
+      "intent_probability": 0.6260191545262774,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "account_005",
+          "category": "USER_PROFILE",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_54",
+          "observed_at": "2026-09-02T22:45:00Z",
+          "location": "customer_profiles_failover_replica"
+        }
+      ]
+    },
+    {
+      "case_id": "case_06",
+      "intent_authorized": true,
+      "intent_probability": 0.722034954807209,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "search_001",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_57",
+          "observed_at": "2026-09-10T08:45:00Z",
+          "location": "search_documents_primary"
+        }
+      ]
+    },
+    {
+      "case_id": "case_07",
+      "intent_authorized": true,
+      "intent_probability": 0.6635260662341961,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "object_19",
+          "category": "SUPPORT_ATTACHMENT",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_46",
+          "observed_at": "2026-02-13T08:00:00Z",
+          "location": "OCR with catalog identity activity_4007"
+        },
+        {
+          "resource": "support_001",
+          "category": "SUPPORT_ATTACHMENT",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_58",
+          "observed_at": "2026-09-12T07:30:00Z",
+          "location": "PDF extracted text"
+        }
+      ]
+    },
+    {
+      "case_id": "case_08",
+      "intent_authorized": true,
+      "intent_probability": 0.5876157497142207,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "export_001",
+          "category": "USER_EXPORT",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_59",
+          "observed_at": "2026-09-14T15:40:00Z",
+          "location": "customer_export_jobs"
+        }
+      ]
+    },
+    {
+      "case_id": "case_09",
+      "intent_authorized": true,
+      "intent_probability": 0.6595271951588126,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "backup_4978",
+          "category": "BACKUP_ARCHIVE",
+          "observed_state": "ACTIVE",
+          "target_state": "BLOCKED",
+          "evidence": "evidence_93",
+          "observed_at": "2026-09-16T07:59:54Z",
+          "location": "backup_restore_entries"
+        }
+      ]
+    },
+    {
+      "case_id": "case_10",
+      "intent_authorized": true,
+      "intent_probability": 0.26724141921946737,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "support_002",
+          "category": "SECONDARY_IDENTIFIER",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_61",
+          "observed_at": "2026-09-17T22:00:05Z",
+          "location": "line 5"
+        }
+      ]
+    },
+    {
+      "case_id": "case_11",
+      "intent_authorized": true,
+      "intent_probability": 0.5057490149429757,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "account_4248",
+          "category": "USER_PROFILE",
+          "observed_state": "ABSENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 11"
+        },
+        {
+          "resource": "analytics_2034",
+          "category": "ANALYTICS_PROFILE",
+          "observed_state": "PRESENT",
+          "target_state": "ANONYMIZED",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 16"
+        },
+        {
+          "resource": "data_flow_9522",
+          "category": "DATA_FLOW",
+          "observed_state": "ACTIVE",
+          "target_state": "DISABLED",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 25"
+        },
+        {
+          "resource": "search_052",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 26"
+        },
+        {
+          "resource": "audit_record_9394",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 40"
+        },
+        {
+          "resource": "support_864",
+          "category": "SUPPORT_MESSAGE",
+          "observed_state": "PRESENT",
+          "target_state": "REDACTED",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 46"
+        }
+      ]
+    },
+    {
+      "case_id": "case_12",
+      "intent_authorized": true,
+      "intent_probability": 0.35210636848045695,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "audit_record_2945",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:55:40Z",
+          "location": "line 63"
+        },
+        {
+          "resource": "account_9797",
+          "category": "USER_PROFILE",
+          "observed_state": "ABSENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:56:57Z",
+          "location": "line 76"
+        },
+        {
+          "resource": "analytics_9914",
+          "category": "MARKETING_PROFILE",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:58:26Z",
+          "location": "line 92"
+        }
+      ]
+    },
+    {
+      "case_id": "case_13",
+      "intent_authorized": true,
+      "intent_probability": 0.7444868114508891,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "account_9335",
+          "category": "USER_PROFILE",
+          "observed_state": "ABSENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 15"
+        },
+        {
+          "resource": "search_1308",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 27"
+        },
+        {
+          "resource": "audit_record_4816",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 34"
+        },
+        {
+          "resource": "support_4218",
+          "category": "SUPPORT_ATTACHMENT",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 43"
+        }
+      ]
+    },
+    {
+      "case_id": "case_14",
+      "intent_authorized": true,
+      "intent_probability": 0.7192868604879012,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "account_3677",
+          "category": "USER_PROFILE",
+          "observed_state": "ABSENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 9"
+        },
+        {
+          "resource": "backup_3870",
+          "category": "BACKUP_ARCHIVE",
+          "observed_state": "ACTIVE",
+          "target_state": "BLOCKED",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 19"
+        },
+        {
+          "resource": "audit_record_987",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "location": "line 41"
+        }
+      ]
+    },
+    {
+      "case_id": "case_15",
+      "intent_authorized": true,
+      "intent_probability": 0.7890719399953183,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "account_4745",
+          "category": "USER_PROFILE",
+          "observed_state": "ABSENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:51:20Z",
+          "location": "line 22"
+        },
+        {
+          "resource": "data_flow_9846",
+          "category": "DATA_FLOW",
+          "observed_state": "ACTIVE",
+          "target_state": "DISABLED",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:58:11Z",
+          "location": "line 88"
+        },
+        {
+          "resource": "audit_record_1596",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:59:37Z",
+          "location": "line 103"
+        }
+      ]
+    },
+    {
+      "case_id": "case_16",
+      "intent_authorized": true,
+      "intent_probability": 0.7908876453048145,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "audit_record_9528",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "location": "customer_data_primary"
+        },
+        {
+          "resource": "search_1007",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "location": "customer_data_primary"
+        },
+        {
+          "resource": "account_994",
+          "category": "USER_PROFILE",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "location": "customer_data_read_replica"
+        }
+      ]
+    },
+    {
+      "case_id": "case_17",
+      "intent_authorized": true,
+      "intent_probability": 0.8032723944776236,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "account_4092",
+          "category": "USER_PROFILE",
+          "observed_state": "ABSENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:51:19Z",
+          "location": "line 21"
+        },
+        {
+          "resource": "audit_record_1797",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:53:53Z",
+          "location": "line 33"
+        },
+        {
+          "resource": "backup_3245",
+          "category": "BACKUP_ARCHIVE",
+          "observed_state": "ACTIVE",
+          "target_state": "BLOCKED",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:54:41Z",
+          "location": "line 53"
+        },
+        {
+          "resource": "tombstone_17",
+          "category": "ACCOUNT_TOMBSTONE",
+          "observed_state": "REDACTED",
+          "target_state": "REDACTED",
+          "evidence": "evidence_42",
+          "observed_at": "2026-03-10T06:00:00Z",
+          "location": "OCR with catalog identity activity_4011"
+        },
+        {
+          "resource": "account_6523",
+          "category": "USER_PROFILE",
+          "observed_state": "ABSENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_67",
+          "observed_at": "2026-03-10T06:18:01Z",
+          "location": "line 3"
+        }
+      ]
+    },
+    {
+      "case_id": "case_18",
+      "intent_authorized": true,
+      "intent_probability": 0.6129859722251443,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "support_5569",
+          "category": "SUPPORT_MESSAGE",
+          "observed_state": "PRESENT",
+          "target_state": "REDACTED",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T07:59:44Z",
+          "location": "line 11"
+        },
+        {
+          "resource": "analytics_037",
+          "category": "ANALYTICS_PROFILE",
+          "observed_state": "PRESENT",
+          "target_state": "ANONYMIZED",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T08:57:49Z",
+          "location": "line 23"
+        },
+        {
+          "resource": "data_flow_4890",
+          "category": "DATA_FLOW",
+          "observed_state": "ACTIVE",
+          "target_state": "DISABLED",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T09:05:11Z",
+          "location": "line 25"
+        },
+        {
+          "resource": "search_4013",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T10:23:12Z",
+          "location": "line 53"
+        }
+      ]
+    },
+    {
+      "case_id": "case_19",
+      "intent_authorized": true,
+      "intent_probability": 0.8596057867036492,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "support_9553",
+          "category": "SUPPORT_MESSAGE",
+          "observed_state": "PRESENT",
+          "target_state": "REDACTED",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:51:08Z",
+          "location": "line 15"
+        },
+        {
+          "resource": "search_6083",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:54:07Z",
+          "location": "line 36"
+        },
+        {
+          "resource": "audit_record_6793",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:54:34Z",
+          "location": "line 44"
+        },
+        {
+          "resource": "account_9102",
+          "category": "USER_PROFILE",
+          "observed_state": "ABSENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:56:47Z",
+          "location": "line 72"
+        }
+      ]
+    },
+    {
+      "case_id": "case_20",
+      "intent_authorized": true,
+      "intent_probability": 0.8053558608957033,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "search_4262",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T07:57:13Z",
+          "location": "line 9"
+        },
+        {
+          "resource": "data_flow_1770",
+          "category": "DATA_FLOW",
+          "observed_state": "ACTIVE",
+          "target_state": "DISABLED",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T09:52:54Z",
+          "location": "line 41"
+        }
+      ]
+    },
+    {
+      "case_id": "case_21",
+      "intent_authorized": true,
+      "intent_probability": 0.743937333338025,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "audit_record_3737",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:59:10Z",
+          "location": "audit_records"
+        }
+      ]
+    },
+    {
+      "case_id": "case_22",
+      "intent_authorized": true,
+      "intent_probability": 0.5213824537031965,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "analytics_4440",
+          "category": "ANALYTICS_PROFILE",
+          "observed_state": "PRESENT",
+          "target_state": "ANONYMIZED",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "location": "customer_data_primary"
+        },
+        {
+          "resource": "audit_record_3482",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "location": "customer_data_primary"
+        },
+        {
+          "resource": "search_8911",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "location": "customer_data_primary"
+        }
+      ]
+    },
+    {
+      "case_id": "case_23",
+      "intent_authorized": true,
+      "intent_probability": 0.7127487393301387,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "export_7364",
+          "category": "USER_EXPORT",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:39:19Z",
+          "location": "exports"
+        },
+        {
+          "resource": "search_898",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:08:28Z",
+          "location": "index_queries"
+        }
+      ]
+    },
+    {
+      "case_id": "case_24",
+      "intent_authorized": true,
+      "intent_probability": 0.8358049177580954,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [],
+      "resources": [
+        {
+          "resource": "account_5334",
+          "category": "USER_PROFILE",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:41:33Z",
+          "location": "profile_lookups"
+        },
+        {
+          "resource": "search_5577",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:01:51Z",
+          "location": "index_queries"
+        }
+      ]
+    },
+    {
+      "case_id": "case_25",
+      "intent_authorized": true,
+      "intent_probability": 0.8577475452159613,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "audit_record_451",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:07:33Z",
+          "location": "audit_records"
+        }
+      ]
+    },
+    {
+      "case_id": "case_26",
+      "intent_authorized": true,
+      "intent_probability": 0.5679577907366824,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "backup_3120",
+          "category": "BACKUP_ARCHIVE",
+          "observed_state": "BLOCKED",
+          "target_state": "BLOCKED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:58:35Z",
+          "location": "restore_entries"
+        },
+        {
+          "resource": "data_flow_6244",
+          "category": "DATA_FLOW",
+          "observed_state": "DISABLED",
+          "target_state": "DISABLED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:15:29Z",
+          "location": "connectors"
+        },
+        {
+          "resource": "audit_record_5416",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:56:58Z",
+          "location": "audit_records"
+        },
+        {
+          "resource": "support_4715",
+          "category": "SUPPORT_MESSAGE",
+          "observed_state": "REDACTED",
+          "target_state": "REDACTED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:00:05Z",
+          "location": "tickets"
+        }
+      ]
+    },
+    {
+      "case_id": "case_27",
+      "intent_authorized": true,
+      "intent_probability": 0.8255392979008781,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "backup_5970",
+          "category": "BACKUP_ARCHIVE",
+          "observed_state": "BLOCKED",
+          "target_state": "BLOCKED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:39:37Z",
+          "location": "restore_entries"
+        },
+        {
+          "resource": "data_flow_2295",
+          "category": "DATA_FLOW",
+          "observed_state": "DISABLED",
+          "target_state": "DISABLED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T08:48:09Z",
+          "location": "connectors"
+        },
+        {
+          "resource": "audit_record_3830",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:31:23Z",
+          "location": "audit_records"
+        },
+        {
+          "resource": "support_4707",
+          "category": "SUPPORT_MESSAGE",
+          "observed_state": "REDACTED",
+          "target_state": "REDACTED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:48:30Z",
+          "location": "tickets"
+        }
+      ]
+    },
+    {
+      "case_id": "case_28",
+      "intent_authorized": true,
+      "intent_probability": 0.5290228330515081,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "backup_838",
+          "category": "BACKUP_ARCHIVE",
+          "observed_state": "BLOCKED",
+          "target_state": "BLOCKED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:04:41Z",
+          "location": "restore_entries"
+        },
+        {
+          "resource": "data_flow_2337",
+          "category": "DATA_FLOW",
+          "observed_state": "DISABLED",
+          "target_state": "DISABLED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:35:32Z",
+          "location": "connectors"
+        },
+        {
+          "resource": "audit_record_9265",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:52:37Z",
+          "location": "audit_records"
+        },
+        {
+          "resource": "support_2351",
+          "category": "SUPPORT_MESSAGE",
+          "observed_state": "REDACTED",
+          "target_state": "REDACTED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:51:49Z",
+          "location": "tickets"
+        }
+      ]
+    },
+    {
+      "case_id": "case_29",
+      "intent_authorized": true,
+      "intent_probability": 0.4060778420513007,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "analytics_5208",
+          "category": "ANALYTICS_PROFILE",
+          "observed_state": "PRESENT",
+          "target_state": "ANONYMIZED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T11:38:32Z",
+          "location": "customer_analytics_profiles"
+        },
+        {
+          "resource": "data_flow_3827",
+          "category": "DATA_FLOW",
+          "observed_state": "ACTIVE",
+          "target_state": "DISABLED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T08:56:38Z",
+          "location": "connectors"
+        },
+        {
+          "resource": "search_1993",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:14:18Z",
+          "location": "index_queries"
+        },
+        {
+          "resource": "support_5281",
+          "category": "SUPPORT_MESSAGE",
+          "observed_state": "PRESENT",
+          "target_state": "REDACTED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:48:45Z",
+          "location": "tickets"
+        }
+      ]
+    },
+    {
+      "case_id": "case_30",
+      "intent_authorized": true,
+      "intent_probability": 0.7949689804840515,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "analytics_3697",
+          "category": "ANALYTICS_PROFILE",
+          "observed_state": "PRESENT",
+          "target_state": "ANONYMIZED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:36:41Z",
+          "location": "customer_analytics_profiles"
+        },
+        {
+          "resource": "data_flow_8524",
+          "category": "DATA_FLOW",
+          "observed_state": "ACTIVE",
+          "target_state": "DISABLED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:38:44Z",
+          "location": "connectors"
+        },
+        {
+          "resource": "search_9359",
+          "category": "SEARCH_INDEX_ENTRY",
+          "observed_state": "PRESENT",
+          "target_state": "ABSENT",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T11:43:39Z",
+          "location": "index_queries"
+        },
+        {
+          "resource": "support_6477",
+          "category": "SUPPORT_MESSAGE",
+          "observed_state": "PRESENT",
+          "target_state": "REDACTED",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:03:40Z",
+          "location": "tickets"
+        }
+      ]
+    },
+    {
+      "case_id": "case_31",
+      "intent_authorized": true,
+      "intent_probability": 0.7070568520877037,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "tombstone_440",
+          "category": "ACCOUNT_TOMBSTONE",
+          "observed_state": "REDACTED",
+          "target_state": "REDACTED",
+          "evidence": "evidence_51",
+          "observed_at": "2026-09-15T12:00:00Z",
+          "location": "deleted_customer_references"
+        },
+        {
+          "resource": "audit_record_6909",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_51",
+          "observed_at": "2026-09-15T12:00:00Z",
+          "location": "security_audit_events"
+        }
+      ]
+    },
+    {
+      "case_id": "case_32",
+      "intent_authorized": true,
+      "intent_probability": 0.7629524224862764,
+      "intent_reason": "erasure or deletion-audit intent",
+      "warnings": [
+        "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
+      ],
+      "resources": [
+        {
+          "resource": "tombstone_9178",
+          "category": "ACCOUNT_TOMBSTONE",
+          "observed_state": "PRESENT",
+          "target_state": "REDACTED",
+          "evidence": "evidence_51",
+          "observed_at": "2026-09-15T12:00:00Z",
+          "location": "deleted_customer_references"
+        },
+        {
+          "resource": "audit_record_7068",
+          "category": "SECURITY_AUDIT_LOG",
+          "observed_state": "PRESENT",
+          "target_state": "PRESENT",
+          "evidence": "evidence_51",
+          "observed_at": "2026-09-15T12:00:00Z",
+          "location": "security_audit_events"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "evidence_04",
+      "ocr_characters": 1063
+    },
+    {
+      "file": "evidence_09",
+      "ocr_characters": 1041
+    },
+    {
+      "file": "evidence_14",
+      "ocr_characters": 1173
+    },
+    {
+      "file": "evidence_19",
+      "ocr_characters": 1169
+    },
+    {
+      "file": "evidence_23",
+      "ocr_characters": 1205
+    },
+    {
+      "file": "evidence_28",
+      "ocr_characters": 1185
+    },
+    {
+      "file": "evidence_32",
+      "ocr_characters": 1368
+    },
+    {
+      "file": "evidence_37",
+      "ocr_characters": 1553
+    },
+    {
+      "file": "evidence_42",
+      "ocr_characters": 1260
+    },
+    {
+      "file": "evidence_46",
+      "ocr_characters": 1368
+    },
+    {
+      "file": "evidence_60",
+      "ocr_characters": 1190
+    }
+  ]
+}
