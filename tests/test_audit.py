@@ -127,6 +127,48 @@ INSERT INTO customer_profiles_replica VALUES ('account_88','user_900','new@examp
         self.assertEqual(result['deletion_status'],'INCOMPLETE')
         self.assertTrue(auditor.diagnostics[0]['warnings'])
 
+    def test_source_account_without_readback_stays_in_verification(self):
+        record=dict(resource_id='search_51',email='new@example.test',source_resource_id='account_88')
+        doc={'captured_at':T1,'collection':'customer_search_documents','records':[record]}
+        result,auditor=self.fixture([(T1,doc,'json')])
+        self.assertEqual(result['deletion_status'],'INCOMPLETE')
+        account=[s for s in result['steps'] if s['resource_id']=='account_88']
+        self.assertEqual([s['operation'] for s in account],['VERIFY_RECORD_ABSENT'])
+        self.assertEqual(account[0]['evidence_id'],'')
+        self.assertEqual(auditor.diagnostics[0]['unverified_resources'][0]['linked_from'],'search_51')
+
+    def test_anonymized_record_keeps_earlier_proven_ownership(self):
+        before={'captured_at':T0,'collection':'customer_analytics_reports','records':[
+            dict(resource_id='analytics_51',email='new@example.test',user_id='user_900')]}
+        after={'captured_at':T1,'collection':'customer_analytics_reports','records':[
+            dict(resource_id='analytics_51',email=None,user_id=None,phone=None,email_hash=None)]}
+        absent={'records':[self.record('account_88','USER_PROFILE','NOT_FOUND')]}
+        result,auditor=self.fixture([(T0,before,'json'),(T1,after,'json'),(T1,absent,'json')])
+        self.assertEqual(result['deletion_status'],'COMPLETE')
+        steps=[s for s in result['steps'] if s['resource_id']=='analytics_51']
+        self.assertEqual(steps[0]['operation'],'VERIFY_RECORD_ANONYMIZED')
+        self.assertEqual(steps[0]['evidence_id'],'evidence_2')
+        self.assertTrue(any(x['resource']=='analytics_51' and x['evidence']=='evidence_1'
+                            for x in auditor.diagnostics[0]['ownership_links']))
+
+    def test_message_mention_is_not_resource_ownership(self):
+        message=dict(resource_id='support_51',subject_reference='user_900',
+                     message_text='Another customer asked about account_99.')
+        doc={'captured_at':T1,'collection':'support_conversations','records':[message]}
+        other=self.record('account_99','USER_PROFILE','FOUND','other@example.test')
+        ours=self.record('account_88','USER_PROFILE','NOT_FOUND')
+        result,_=self.fixture([(T1,doc,'json'),(T1,{'records':[other,ours]},'json')])
+        self.assertNotIn('account_99',[s['resource_id'] for s in result['steps']])
+
+    def test_future_ownership_link_cannot_resolve_anonymous_record(self):
+        clean={'captured_at':T1,'collection':'customer_analytics_reports','records':[
+            dict(resource_id='analytics_51',email=None,user_id=None)]}
+        future={'captured_at':T3,'collection':'customer_analytics_reports','records':[
+            dict(resource_id='analytics_51',email='new@example.test',user_id='user_900')]}
+        absent={'records':[self.record('account_88','USER_PROFILE','NOT_FOUND')]}
+        result,_=self.fixture([(T1,clean,'json'),(T3,future,'json'),(T1,absent,'json')])
+        self.assertNotIn('analytics_51',[s['resource_id'] for s in result['steps']])
+
     def test_sql_cannot_attach_a_file(self):
         import sqlite3
         with self.assertRaises(sqlite3.DatabaseError):

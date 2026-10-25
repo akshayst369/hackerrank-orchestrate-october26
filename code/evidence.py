@@ -97,7 +97,7 @@ class Scope:
 class EvidenceStore:
     def __init__(self, dataset, cache):
         self.dataset=Path(dataset).resolve();self.cache=Path(cache)
-        self.observations=[];self.scopes=[];self.links=[];self.diagnostics=[];self.ocr_calls=0
+        self.observations=[];self.scopes=[];self.links=[];self.resource_hints=[];self.diagnostics=[];self.ocr_calls=0
         self.manifest=read_csv(self.dataset/'evidence_files.csv')
         self.activities=read_csv(self.dataset/'system_activity.csv')
         self.catalog={}
@@ -121,7 +121,20 @@ class EvidenceStore:
     def add(self, meta, system, resource, category, state, when, raw, location='', priority=2):
         if not (resource and system and category and state and when):
             raise ValueError(f'Incomplete observation in {meta["file_id"]}: {resource}, {category}, {state}')
-        refs=set(RESOURCE_RE.findall(json.dumps(raw,ensure_ascii=False)))-{resource}
+        refs=set()
+        # Only explicit reference fields establish a resource relationship. A resource
+        # mentioned in a message, filename, or neighboring screen row is not ownership.
+        for key,value in flat_items(raw):
+            if key not in {'source_resource_id','account_resource_id','profile_resource_id'} or not isinstance(value,str):
+                continue
+            if not RESOURCE_RE.fullmatch(value) or value==resource:continue
+            refs.add(value)
+            # The account_ resource namespace denotes account records; the numeric
+            # suffix is never compared with a user/case ID or used to infer ownership.
+            if value.startswith('account_'):
+                self.resource_hints.append(dict(resource=value,system='account_service',category='USER_PROFILE',
+                    owner_resource=resource,observed_at=when,available_at=meta['captured_at'],
+                    evidence=meta['file_id'],location=location,relationship=key))
         self.observations.append(Observation(system,resource,category,state,when,meta['captured_at'],
                                              meta['file_id'],tokens(raw),refs,location,priority))
 

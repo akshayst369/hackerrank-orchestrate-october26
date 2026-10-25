@@ -37,7 +37,7 @@ def validate(results,requests,manifest):
 def write_output(path,results):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
     with path.open('w',encoding='utf-8',newline='') as f:
-        writer=csv.writer(f);writer.writerow(['case_id','deletion_status','steps_json'])
+        writer=csv.writer(f,lineterminator="\n");writer.writerow(['case_id','deletion_status','steps_json'])
         for r in results:writer.writerow([r['case_id'],r['deletion_status'],json.dumps(r['steps'],separators=(',',':'),ensure_ascii=False)])
 
 def run(dataset,request_path,output,cache,diagnostics_path=None):

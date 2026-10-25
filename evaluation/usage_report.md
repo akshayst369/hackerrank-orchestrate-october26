@@ -2,40 +2,37 @@
 
 ## Final full-dataset run
 
-- Timestamp (UTC): 2026-10-25T08:39:59.503924+00:00
-- Command: `.venv/bin/python code/main.py --cache .cache/final-run-ocr`
-- Requests: **518**
-- Evidence files parsed: 94
-- Normalized observations: 2905
-- Wall time inside the pipeline: 10.302 seconds (excludes Python import startup).
-- Cache: empty OCR cache at run start; all 11 screenshots recognized locally.
-- Python: 3.14.6; Tesseract: 5.5.3 (installed English recognition model).
-- Python package versions: scikit-learn 1.9.1, pypdf 6.21.2, pytesseract 0.3.13, Pillow 13.0.0.
-- Output: root `output.csv`, SHA-256 `9427411618d622e1f46747a123ab70857276d572fa02c76dac618b0b4023872f`.
+- Command: `.venv/bin/python code/main.py`
+- Timestamp (UTC): 2026-10-25T09:24:36.691499+00:00
+- Requests: 518; evidence files: 94; normalized observations: 2905.
+- Pipeline wall time: 1.173 seconds, excluding Python import startup.
+- OCR cache: warm; all 11 screenshot text extractions reused by image content hash. No OCR inference calls in this final run. Earlier cold-run OCR calls are not included in this run's totals.
+- Python: 3.14.6; scikit-learn: 1.9.1; Tesseract installed version: 5.5.3.
+- Root `output.csv` SHA-256: `31d2d2a24cfc809a29d64f1dc59386e97e4e8d2bef6099fae73b3080fe1a3716`.
 
-## Models, calls, tokens, and cost
+## Per-model and overall totals
 
-| Provider / execution | Model | Calls | Input LLM tokens | Output LLM tokens | Estimated API cost |
-| --- | --- | ---: | ---: | ---: | ---: |
-| Local scikit-learn | local-char-tfidf-logistic-regression-v1 | 518 | N/A (0 billed) | N/A (0 billed) | $0.00 |
-| Local Tesseract | Tesseract 5.5.3 English OCR (`eng.traineddata`) | 11 | N/A (0 billed) | N/A (0 billed) | $0.00 |
+| Provider / execution | Model | Calls | Input tokens | Output tokens | API cost |
+| --- | --- | ---: | --- | --- | ---: |
+| Local scikit-learn | local-char-tfidf-logistic-regression-v1 | 518 | N/A; 0 billed | N/A; 0 billed | $0.00 |
+| Local Tesseract | Tesseract 5.5.3 English OCR (`eng.traineddata`), cached | 0 | N/A; 0 billed | N/A; 0 billed | $0.00 |
 | Hosted providers | None | 0 | 0 | 0 | $0.00 |
-| Overall | Local text classification + OCR | 529 | 0 billed | 0 billed | **$0.00** |
+| Overall | Local inference | 518 | 0 billed | 0 billed | **$0.00** |
 
-Total hosted input tokens: **0**. Total hosted output tokens: **0**.
+Total hosted input tokens: **0**; total hosted output tokens: **0**.
 Total billed tokens: **0**; average billed tokens per request: **0 / 518 = 0**.
-Estimated total API cost: **$0.00**; average API cost per request: **$0.00 / 518 = $0.00**.
-The classifier receives 518 text requests and uses character n-gram features; it does not have an LLM token accounting interface.
-OCR receives 11 raster images. Its internal symbols are not presented as provider tokens.
-Local CPU time, electricity, and development-assistant usage are excluded from API cost, rather than incorrectly claimed to have no resource cost.
-Development-assistant token counts were not supplied by the harness and are not invented here; this report covers the submitted pipeline's final run.
+Estimated total API cost: **$0.00**; estimated average API cost per request: **$0.00 / 518 = $0.00**.
+The local classifier uses character n-gram features rather than an LLM token interface; OCR uses raster inputs. Neither is misreported as generating LLM tokens.
+Local CPU/electricity and development-assistant resource usage are excluded from API cost. Development-assistant token counts were not supplied by the harness and are not invented.
+Separate sample evaluation, regression tests, earlier runs, and archive smoke tests are not part of the final 518-request inference totals.
 
 ## Output distribution and limitations
 
-- COMPLETE: 52
-- INCOMPLETE: 456
-- NOT_APPLICABLE: 10
-- Cases with explicit unresolved-proof diagnostics: **342**.
+| Predicted status | Requests |
+| --- | ---: |
+| COMPLETE | 52 |
+| INCOMPLETE | 456 |
+| NOT_APPLICABLE | 10 |
 
-These are predicted statuses, not hidden-ground-truth counts. See `evaluation_report.md` for measured public-sample accuracy and the limitations of conservative missing-proof handling.
-The separate sample evaluation and regression-test runs are not included in the final 518-request call totals.
+Cases with unresolved-proof diagnostics: **342**.
+These are predicted counts, not hidden truth. See `evaluation_report.md` for sample accuracy and `provenance_review.md` for missing verification evidence.

@@ -1,6 +1,6 @@
 {
   "usage": {
-    "timestamp": "2026-10-25T08:38:26.733261+00:00",
+    "timestamp": "2026-10-25T09:24:33.977724+00:00",
     "requests": 32,
     "model": "local-char-tfidf-logistic-regression-v1",
     "classifier_calls": 32,
@@ -9,10 +9,10 @@
     "input_tokens": 0,
     "output_tokens": 0,
     "api_cost_usd": 0,
-    "seconds": 0.621,
+    "seconds": 0.541,
     "observations": 2905,
     "files": 94,
-    "output_sha256": "4e7bd115a3ee7831eccac0b489c237b53aa513ab1c485d2363f7df5fe3c25114",
+    "output_sha256": "2fe966e91ed406e5462b799294fb4e9dd04cbe1e1046f0c2b927a63b8529d1f4",
     "statuses": {
       "INCOMPLETE": 31,
       "COMPLETE": 1
@@ -28,7 +28,9 @@
       "warnings": [
         "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
       ],
-      "resources": []
+      "resources": [],
+      "ownership_links": [],
+      "unverified_resources": []
     },
     {
       "case_id": "case_02",
@@ -38,7 +40,9 @@
       "warnings": [
         "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
       ],
-      "resources": []
+      "resources": [],
+      "ownership_links": [],
+      "unverified_resources": []
     },
     {
       "case_id": "case_03",
@@ -65,7 +69,24 @@
           "observed_at": "2026-09-26T09:40:29Z",
           "location": "line 35"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "account_7566",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T08:57:37Z",
+          "available_at": "2026-09-26T10:38:56Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_2016",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T09:40:29Z",
+          "available_at": "2026-09-26T10:38:56Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_04",
@@ -75,7 +96,9 @@
       "warnings": [
         "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
       ],
-      "resources": []
+      "resources": [],
+      "ownership_links": [],
+      "unverified_resources": []
     },
     {
       "case_id": "case_05",
@@ -93,7 +116,17 @@
           "observed_at": "2026-09-02T22:45:00Z",
           "location": "customer_profiles_failover_replica"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "account_005",
+          "evidence": "evidence_54",
+          "observed_at": "2026-09-02T22:45:00Z",
+          "available_at": "2026-09-02T23:00:00Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_06",
@@ -101,6 +134,7 @@
       "intent_probability": 0.722034954807209,
       "intent_reason": "erasure or deletion-audit intent",
       "warnings": [
+        "No cutoff-valid state observation for referenced resource account_006.",
         "No identity-linked account resource with cutoff-valid readback; cannot prove account absence."
       ],
       "resources": [
@@ -112,6 +146,42 @@
           "evidence": "evidence_57",
           "observed_at": "2026-09-10T08:45:00Z",
           "location": "search_documents_primary"
+        },
+        {
+          "resource": "account_006",
+          "category": "USER_PROFILE",
+          "observed_state": "UNKNOWN",
+          "target_state": "ABSENT",
+          "evidence": "evidence_57",
+          "observed_at": "2026-09-10T08:45:00Z",
+          "location": "search_documents_primary"
+        }
+      ],
+      "ownership_links": [
+        {
+          "resource": "search_001",
+          "evidence": "evidence_57",
+          "observed_at": "2026-09-10T08:45:00Z",
+          "available_at": "2026-09-10T08:45:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "account_006",
+          "evidence": "evidence_57",
+          "observed_at": "2026-09-10T08:45:00Z",
+          "available_at": "2026-09-10T08:45:00Z",
+          "method": "explicit source-resource reference",
+          "from_resource": "search_001"
+        }
+      ],
+      "unverified_resources": [
+        {
+          "resource": "account_006",
+          "system": "account_service",
+          "category": "USER_PROFILE",
+          "linked_from": "search_001",
+          "link_evidence": "evidence_57",
+          "reason": "Explicit ownership reference exists, but no cutoff-valid state observation."
         }
       ]
     },
@@ -142,7 +212,31 @@
           "observed_at": "2026-09-12T07:30:00Z",
           "location": "PDF extracted text"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "object_19",
+          "evidence": "evidence_46",
+          "observed_at": "2026-02-13T08:00:00Z",
+          "available_at": "2026-02-13T08:07:01Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "support_001",
+          "evidence": "evidence_58",
+          "observed_at": "2026-09-12T07:30:00Z",
+          "available_at": "2026-09-12T07:30:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "object_19",
+          "evidence": "activity_4007",
+          "observed_at": "2026-02-13T08:07:01Z",
+          "available_at": "2026-02-13T08:07:01Z",
+          "method": "explicit catalog identity"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_08",
@@ -162,7 +256,17 @@
           "observed_at": "2026-09-14T15:40:00Z",
           "location": "customer_export_jobs"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "export_001",
+          "evidence": "evidence_59",
+          "observed_at": "2026-09-14T15:40:00Z",
+          "available_at": "2026-09-14T15:40:00Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_09",
@@ -182,7 +286,17 @@
           "observed_at": "2026-09-16T07:59:54Z",
           "location": "backup_restore_entries"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "backup_4978",
+          "evidence": "evidence_93",
+          "observed_at": "2026-09-16T07:59:54Z",
+          "available_at": "2026-09-16T08:37:39Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_10",
@@ -202,7 +316,17 @@
           "observed_at": "2026-09-17T22:00:05Z",
           "location": "line 5"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "support_002",
+          "evidence": "evidence_61",
+          "observed_at": "2026-09-17T22:00:05Z",
+          "available_at": "2026-09-17T22:00:19Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_11",
@@ -265,7 +389,52 @@
           "observed_at": "2026-10-01T12:00:00Z",
           "location": "line 46"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "account_4248",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "analytics_2034",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "data_flow_9522",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_052",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_9394",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "support_864",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_12",
@@ -301,7 +470,31 @@
           "observed_at": "2026-09-15T11:58:26Z",
           "location": "line 92"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "audit_record_2945",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:55:40Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "account_9797",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:56:57Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "analytics_9914",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:58:26Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_13",
@@ -346,7 +539,38 @@
           "observed_at": "2026-10-01T12:00:00Z",
           "location": "line 43"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "account_9335",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_1308",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_4816",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "support_4218",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_14",
@@ -382,7 +606,31 @@
           "observed_at": "2026-10-01T12:00:00Z",
           "location": "line 41"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "account_3677",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "backup_3870",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_987",
+          "evidence": "evidence_03",
+          "observed_at": "2026-10-01T12:00:00Z",
+          "available_at": "2026-10-01T12:00:00Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_15",
@@ -418,7 +666,31 @@
           "observed_at": "2026-09-15T11:59:37Z",
           "location": "line 103"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "account_4745",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:51:20Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "data_flow_9846",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:58:11Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_1596",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:59:37Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_16",
@@ -454,7 +726,45 @@
           "observed_at": "2026-09-21T10:00:00Z",
           "location": "customer_data_read_replica"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "audit_record_9528",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_1007",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "account_994",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_9528",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_1007",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_17",
@@ -508,7 +818,52 @@
           "observed_at": "2026-03-10T06:18:01Z",
           "location": "line 3"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "account_4092",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:51:19Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_1797",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:53:53Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "backup_3245",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:54:41Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "tombstone_17",
+          "evidence": "evidence_42",
+          "observed_at": "2026-03-10T06:00:00Z",
+          "available_at": "2026-03-10T06:07:01Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "account_6523",
+          "evidence": "evidence_67",
+          "observed_at": "2026-03-10T06:18:01Z",
+          "available_at": "2026-03-10T06:18:01Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "tombstone_17",
+          "evidence": "activity_4011",
+          "observed_at": "2026-03-10T06:07:01Z",
+          "available_at": "2026-03-10T06:07:01Z",
+          "method": "explicit catalog identity"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_18",
@@ -555,7 +910,38 @@
           "observed_at": "2026-09-26T10:23:12Z",
           "location": "line 53"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "support_5569",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T07:59:44Z",
+          "available_at": "2026-09-26T10:38:56Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "analytics_037",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T08:57:49Z",
+          "available_at": "2026-09-26T10:38:56Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "data_flow_4890",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T09:05:11Z",
+          "available_at": "2026-09-26T10:38:56Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_4013",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T10:23:12Z",
+          "available_at": "2026-09-26T10:38:56Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_19",
@@ -600,7 +986,38 @@
           "observed_at": "2026-09-15T11:56:47Z",
           "location": "line 72"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "support_9553",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:51:08Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_6083",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:54:07Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_6793",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:54:34Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "account_9102",
+          "evidence": "evidence_01",
+          "observed_at": "2026-09-15T11:56:47Z",
+          "available_at": "2026-09-15T11:59:39Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_20",
@@ -629,7 +1046,24 @@
           "observed_at": "2026-09-26T09:52:54Z",
           "location": "line 41"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "search_4262",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T07:57:13Z",
+          "available_at": "2026-09-26T10:38:56Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "data_flow_1770",
+          "evidence": "evidence_94",
+          "observed_at": "2026-09-26T09:52:54Z",
+          "available_at": "2026-09-26T10:38:56Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_21",
@@ -649,7 +1083,17 @@
           "observed_at": "2026-09-15T09:59:10Z",
           "location": "audit_records"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "audit_record_3737",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:59:10Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_22",
@@ -687,7 +1131,52 @@
           "observed_at": "2026-09-21T10:00:00Z",
           "location": "customer_data_primary"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "analytics_4440",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_3482",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_8911",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "analytics_4440",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_3482",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_8911",
+          "evidence": "evidence_05",
+          "observed_at": "2026-09-21T10:00:00Z",
+          "available_at": "2026-09-21T10:00:00Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_23",
@@ -716,7 +1205,24 @@
           "observed_at": "2026-09-15T10:08:28Z",
           "location": "index_queries"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "export_7364",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:39:19Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_898",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:08:28Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_24",
@@ -743,7 +1249,24 @@
           "observed_at": "2026-09-15T10:01:51Z",
           "location": "index_queries"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "account_5334",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:41:33Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_5577",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:01:51Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_25",
@@ -763,7 +1286,17 @@
           "observed_at": "2026-09-15T10:07:33Z",
           "location": "audit_records"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "audit_record_451",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:07:33Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_26",
@@ -810,7 +1343,38 @@
           "observed_at": "2026-09-15T10:00:05Z",
           "location": "tickets"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "backup_3120",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:58:35Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "data_flow_6244",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:15:29Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_5416",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:56:58Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "support_4715",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:00:05Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_27",
@@ -857,7 +1421,38 @@
           "observed_at": "2026-09-15T10:48:30Z",
           "location": "tickets"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "backup_5970",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:39:37Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "data_flow_2295",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T08:48:09Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_3830",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:31:23Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "support_4707",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:48:30Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_28",
@@ -904,7 +1499,38 @@
           "observed_at": "2026-09-15T10:51:49Z",
           "location": "tickets"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "backup_838",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:04:41Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "data_flow_2337",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:35:32Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_9265",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:52:37Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "support_2351",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:51:49Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_29",
@@ -951,7 +1577,38 @@
           "observed_at": "2026-09-15T10:48:45Z",
           "location": "tickets"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "analytics_5208",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T11:38:32Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "data_flow_3827",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T08:56:38Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_1993",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:14:18Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "support_5281",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:48:45Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_30",
@@ -998,7 +1655,38 @@
           "observed_at": "2026-09-15T09:03:40Z",
           "location": "tickets"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "analytics_3697",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T10:36:41Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "data_flow_8524",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:38:44Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "search_9359",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T11:43:39Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "support_6477",
+          "evidence": "evidence_92",
+          "observed_at": "2026-09-15T09:03:40Z",
+          "available_at": "2026-09-15T11:44:55Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_31",
@@ -1027,7 +1715,24 @@
           "observed_at": "2026-09-15T12:00:00Z",
           "location": "security_audit_events"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "tombstone_440",
+          "evidence": "evidence_51",
+          "observed_at": "2026-09-15T12:00:00Z",
+          "available_at": "2026-09-15T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_6909",
+          "evidence": "evidence_51",
+          "observed_at": "2026-09-15T12:00:00Z",
+          "available_at": "2026-09-15T12:00:00Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     },
     {
       "case_id": "case_32",
@@ -1056,7 +1761,24 @@
           "observed_at": "2026-09-15T12:00:00Z",
           "location": "security_audit_events"
         }
-      ]
+      ],
+      "ownership_links": [
+        {
+          "resource": "tombstone_9178",
+          "evidence": "evidence_51",
+          "observed_at": "2026-09-15T12:00:00Z",
+          "available_at": "2026-09-15T12:00:00Z",
+          "method": "exact subject identifier"
+        },
+        {
+          "resource": "audit_record_7068",
+          "evidence": "evidence_51",
+          "observed_at": "2026-09-15T12:00:00Z",
+          "available_at": "2026-09-15T12:00:00Z",
+          "method": "exact subject identifier"
+        }
+      ],
+      "unverified_resources": []
     }
   ],
   "files": [

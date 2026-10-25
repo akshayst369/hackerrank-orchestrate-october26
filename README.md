@@ -4,8 +4,8 @@ A terminal-runnable, offline baseline for HackerRank Orchestrate October 2026.
 It reconstructs identity links and timestamped evidence, applies deletion policy, and writes the required `output.csv`.
 It never deletes actual customer data and makes no hosted model calls.
 
-**Measured public-sample results: 23/32 deletion statuses correct (71.88%); 8/32 exact step sequences correct (25.00%).**
-All 13 participant-created regression tests pass. Missing identity provenance remains a substantial limitation; this is not a claim of a fully accurate submission.
+**Measured public-sample results: 23/32 deletion statuses correct (71.88%); 9/32 exact step sequences correct (28.12%).**
+All 17 participant-created regression tests pass. The latest pass recovered one complete sequence by preserving explicitly referenced source accounts in future verification. Missing identity provenance remains a substantial limitation; this is not a claim of a fully accurate submission.
 See [evaluation/evaluation_report.md](evaluation/evaluation_report.md) for metrics, failures, custom cases, and per-case results.
 
 ## Setup
@@ -72,6 +72,8 @@ Run diagnostics under `evaluation/` identify unresolved proof gaps and retain ev
 6. **Validation:** check exact columns, request coverage, unique sorted case IDs, step fields, numbering, permitted operations/states, and evidence cutoffs. COMPLETE verification cites existing evidence; proposed future work uses empty evidence IDs.
 
 ## Evaluation
+
+[The provenance review](evaluation/provenance_review.md) traces every remaining missing sample verification to the parsed source evidence and its availability time. Diagnostics also include `ownership_links` and `unverified_resources`, separating known ownership from proven state.
 
 ```bash
 .venv/bin/python -m unittest discover -s tests -v

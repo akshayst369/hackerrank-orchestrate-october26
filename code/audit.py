@@ -1,8 +1,6 @@
 """Identity resolution, cutoff-aware state reconstruction, policy, and planning."""
 from collections import defaultdict
-from dataclasses import asdict
 import hashlib
-import re
 from evidence import read_csv, tokens, Observation, CATEGORY_SYSTEM
 
 PHASES=['FINDING','REMEDIATION','VERIFICATION']
@@ -68,15 +66,22 @@ class Auditor:
 
     def audit(self,request):
         authorized,confidence,reason=self.intent.classify(request['request_text'])
-        diag={'case_id':request['case_id'],'intent_authorized':authorized,'intent_probability':confidence,'intent_reason':reason,'warnings':[],'resources':[]}
+        diag={'case_id':request['case_id'],'intent_authorized':authorized,'intent_probability':confidence,'intent_reason':reason,'warnings':[],'resources':[],'ownership_links':[],'unverified_resources':[]}
         self.diagnostics.append(diag)
         if not authorized:return {'case_id':request['case_id'],'deletion_status':'NOT_APPLICABLE','steps':[]}
         cutoff=request['audit_at'];user,identifiers=self.identities.resolve(request['email'],cutoff)
         eligible=[o for o in self.store.observations if o.available_at<=cutoff and o.observed_at<=cutoff]
         # Subject associations and references must themselves exist at or before the cutoff.
         owned={o.resource for o in eligible if o.identifiers & identifiers}
+        for o in eligible:
+            if o.identifiers & identifiers:
+                diag['ownership_links'].append(dict(resource=o.resource,evidence=o.evidence,
+                    observed_at=o.observed_at,available_at=o.available_at,method='exact subject identifier'))
         for when,resource,ids,evidence in self.store.links:
-            if when<=cutoff and ids & identifiers:owned.add(resource)
+            if when<=cutoff and ids & identifiers:
+                owned.add(resource)
+                diag['ownership_links'].append(dict(resource=resource,evidence=evidence,
+                    observed_at=when,available_at=when,method='explicit catalog identity'))
         # Direct record references support identity propagation, not mere co-location in a file.
         changed=True
         while changed:
@@ -86,7 +91,11 @@ class Auditor:
                     for ref in o.references:
                         # An explicit link to a record with another subject must not leak identity.
                         conflicts=[x for x in eligible if x.resource==ref and x.identifiers and not x.identifiers & identifiers]
-                        if ref not in owned and not conflicts:owned.add(ref);changed=True
+                        if ref not in owned and not conflicts:
+                            owned.add(ref);changed=True
+                            diag['ownership_links'].append(dict(resource=ref,evidence=o.evidence,
+                                observed_at=o.observed_at,available_at=o.available_at,
+                                method='explicit source-resource reference',from_resource=o.resource))
         candidates=defaultdict(list)
         for o in eligible:
             if o.resource in owned:candidates[o.resource].append(o)
@@ -106,7 +115,24 @@ class Auditor:
             # over a compliant primary; then prefer direct readbacks over OCR interpretation.
             best=max(items,key=lambda o:(o.observed_at,o.state in {'PRESENT','ACTIVE'},o.priority,o.available_at,o.evidence))
             latest.append(best)
-        if not any(o.category=='USER_PROFILE' for o in latest):
+        # Keep referenced targets in the plan even when their state is unknown.
+        # UNKNOWN is internal only: it creates no unsupported finding or remediation.
+        # It requires a future verification and prevents a false COMPLETE verdict.
+        observed_resources={o.resource for o in latest}
+        hinted=set()
+        for hint in self.store.resource_hints:
+            if (hint['available_at']>cutoff or hint['observed_at']>cutoff
+                    or hint['resource'] not in owned or hint['owner_resource'] not in owned
+                    or hint['resource'] in observed_resources or hint['resource'] in hinted):
+                continue
+            hinted.add(hint['resource'])
+            latest.append(Observation(hint['system'],hint['resource'],hint['category'],'UNKNOWN',
+                hint['observed_at'],hint['available_at'],hint['evidence'],location=hint['location']))
+            diag['unverified_resources'].append(dict(resource=hint['resource'],system=hint['system'],
+                category=hint['category'],linked_from=hint['owner_resource'],link_evidence=hint['evidence'],
+                reason='Explicit ownership reference exists, but no cutoff-valid state observation.'))
+            diag['warnings'].append(f"No cutoff-valid state observation for referenced resource {hint['resource']}.")
+        if not any(o.category=='USER_PROFILE' and o.state!='UNKNOWN' for o in latest):
             diag['warnings'].append('No identity-linked account resource with cutoff-valid readback; cannot prove account absence.')
         findings=[];remediations=[];verifications=[]
         def step(phase,op,o,evidence):
@@ -117,7 +143,7 @@ class Auditor:
                 diag['warnings'].append(f'No applicable policy for {o.resource} ({o.category})');continue
             wanted,finding,remedy,verify=TARGETS[action]
             diag['resources'].append(dict(resource=o.resource,category=o.category,observed_state=o.state,target_state=wanted,evidence=o.evidence,observed_at=o.observed_at,location=o.location))
-            if o.state!=wanted:
+            if o.state not in {wanted,'UNKNOWN'}:
                 if finding and remedy:
                     findings.append(step('FINDING',finding,o,o.evidence))
                     remediations.append(step('REMEDIATION',remedy,o,''))

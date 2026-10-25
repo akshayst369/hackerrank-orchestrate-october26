@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 required=[ROOT/'README.md',ROOT/'requirements.txt',ROOT/'evaluation'/'evaluation_report.md',ROOT/'evaluation'/'usage_report.md']
 for path in required:
     if not path.is_file():raise SystemExit(f'Missing required file: {path.relative_to(ROOT)}')
-files=required+list((ROOT/'code').rglob('*.py'))+list((ROOT/'tests').rglob('*.py'))
+files=required+[ROOT/'evaluation'/'provenance_review.md']+list((ROOT/'code').rglob('*.py'))+list((ROOT/'tests').rglob('*.py'))
 with zipfile.ZipFile(ROOT/'code.zip','w',compression=zipfile.ZIP_DEFLATED) as z:
     for path in sorted(set(files)):
         if '__pycache__' in path.parts:continue

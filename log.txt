@@ -104,3 +104,36 @@ branch=main
 repo_root=/Volumes/Drive_Ak/Akshay/Orchestrate oct 26/hackerrank-orchestrate-october26
 worktree=/Volumes/Drive_Ak/Akshay/Orchestrate oct 26/hackerrank-orchestrate-october26
 parent_agent=none
+
+## [2026-10-25T09:25:48.008432+00:00] Improve verification coverage and investigate provenance gaps
+
+User Prompt (verbatim, secrets redacted):
+# Context from my IDE setup:
+
+## Active file: evaluation/sample_predictions.csv
+
+## Open tabs:
+- sample_predictions.csv: evaluation/sample_predictions.csv
+- sample_diagnostics.json: evaluation/sample_diagnostics.json
+- requirements.txt: requirements.txt
+- log.txt: log.txt
+
+## My request:
+ok lets proceed
+
+Agent Response Summary:
+Reviewed all 35 missing public-sample verification steps against participant-visible observations and activity. Fixed the dropped explicit source-account reference, added ownership provenance and unverified-resource diagnostics, and restricted resource linking to explicit fields instead of text co-occurrence. Exact sample sequence accuracy increased from 8/32 to 9/32; status accuracy remains 23/32, and all 17 regression tests pass. Documented the 34 remaining missing verifications: 12 lack cutoff-valid ownership links, 6 have only later state evidence, and 16 have no parsed observation. Regenerated output and reports and repackaged code.zip; the 518 prediction contents are unchanged apart from LF serialization, and the extracted archive reproduces the output exactly.
+
+Actions:
+* Updated code/audit.py, code/evidence.py, code/main.py, tests/test_audit.py, README.md, and packaging/evaluation scripts.
+* Added code/evaluation/provenance.py and evaluation/provenance_review.md.
+* Ran public-sample evaluation, 17 regression tests, full-dataset audit, extracted-archive smoke test, semantic output comparison, and git diff --check.
+* Refreshed evaluation/usage_report.md and code.zip; no hosted inference or API cost.
+
+Context:
+tool=Codex
+model=gpt-6-astra
+branch=main
+repo_root=/Volumes/Drive_Ak/Akshay/Orchestrate oct 26/hackerrank-orchestrate-october26
+worktree=/Volumes/Drive_Ak/Akshay/Orchestrate oct 26/hackerrank-orchestrate-october26
+parent_agent=none
